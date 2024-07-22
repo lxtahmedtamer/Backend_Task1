@@ -1,0 +1,18 @@
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/name")
+def read_name():
+    return {"message": "Hello, I am Ahmed!"}
+
+@app.get("/age")
+def read_age():
+    return {"message": "I am 22 years old"}
+
+@app.get("/greeting")
+def read_greeting():
+    return {"message": "Welcome to my website"}
+    
+
+
