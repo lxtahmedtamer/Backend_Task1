@@ -1,0 +1,23 @@
+from fastapi import FastAPI
+from typing import Optional
+
+app = FastAPI()
+
+# Path parameter and query parameter in the same endpoint
+@app.get("/user/{user_id}")
+def read_user(user_id: int, greeting: Optional[str] = None, age: Optional[int] = None):
+    response = {"user_id": user_id}
+    if greeting:
+        response["greeting"] = greeting
+    if age is not None:
+        response["age"] = age
+    return response
+
+# Another example with a different combination
+@app.get("/details/{user_id}")
+def read_details(user_id: int, include_greeting: Optional[bool] = False):
+    details = {"user_id": user_id}
+    if include_greeting:
+        details["greeting"] = "Hello from FastAPI!"
+    return details
+
