@@ -8,9 +8,9 @@ app = FastAPI()
 def read_user(user_id: int, greeting: Optional[str] = None, age: Optional[int] = None):
     response = {"user_id": user_id}
     if greeting:
-        response["greeting"] = greeting
+       return {"message": "Greeting Activated"}
     if age is not None:
-        response["age"] = age
+        return {"message": "Age Activated"}
     return response
 
 # Another example with a different combination
@@ -18,6 +18,6 @@ def read_user(user_id: int, greeting: Optional[str] = None, age: Optional[int] =
 def read_details(user_id: int, include_greeting: Optional[bool] = False):
     details = {"user_id": user_id}
     if include_greeting:
-        details["greeting"] = "Hello from FastAPI!"
+        details["greeting"] = "Hello from FastAPI! ,greeting activated"
     return details
 
